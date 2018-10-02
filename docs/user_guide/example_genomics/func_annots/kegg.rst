@@ -6,6 +6,10 @@ What is KEGG?
 --------------
 
  KEGG/KAAS (http://www.genome.ad.jp/tools/kaas/). The KAAS server receives as input a FASTA file of sequences and annotates those with KEGG orthologs and pathways.
+The downloaded KEGG annotation file will look like this:
+
+FILE GOES HERE.
+
 
 
 The KEGG OBO
@@ -38,4 +42,25 @@ As with previous functional annotations, we start by creating an analysis. Navig
     "Data Source Name ", "C. sinensis v1.0 genes"
     "Date Performed", "(today's date)"
 
-Click the **Save** button. You can now see our new BLAST analysis page.
+Click the **Save** button. You can now see our new KEGG Analysis page.
+
+
+Run the KEGG importer
+----------------------
+The KEGG importer is available at ``Admin -> Tripal -> Data Loaders -> Chado KEGG Loader``.
+
+
+
+The top section of this page provides multiple methods for providing results file: via an upload interface, specifying a remote URL or a file path that is local to the server.  Most likely, you will always upload or provide a remote URL.  However, we download the file earlier, and stored them here: ```$DRUPAL_HOME/sites/default/files```.  So, in this case we can use the path on the local server.  Provide the following value for this form:
+
+
+.. csv-table::
+  :header: "Field", "Value"
+
+  "Server path", "sites/default/files/"
+  "Analysis", "KEGG analysis of Citrus sinensis v1.0"
+  "Query Name RE", ""
+  "Use Unique Name", "Unchecked"
+  "Query Type", "mRNA"
+
+Click the **Import KEGG File** button.
